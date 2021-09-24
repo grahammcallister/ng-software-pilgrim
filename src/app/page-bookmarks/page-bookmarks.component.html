@@ -1,0 +1,223 @@
+<div class="container body-content">
+  <div class="row">&nbsp;</div>
+  <h2>Bookmarks, links, snippets, reminders and lessons learned</h2>
+  <hr/>
+  <div class="row">
+      <div class="col-lg-12"><small>Last updated: 31 August 2021</small></div>
+  </div>
+  <p>&nbsp;</p>
+<div class="row">
+<div class="col-lg-12">
+<p>
+  Here are some snippets and tools that I find useful. Some of them I wish I could remember without returning to this page every time!
+</p>
+
+<p>&nbsp;</p>
+<h3>GIT Commands</h3>
+<p>
+  Some GIT commands are a little harder to remember than others, and I find myself regularly searching for some operations. Hopefully this list will help me do less searching in future!&nbsp;
+</p>
+<ul>
+  <li>
+          <h4>Delete remote tag</h4>
+          <p>
+              Yes, I regularly push the wrong tag and for the life of me can't remember how to delete a remote tag.
+          </p>
+              <blockquote class="blockquote"><code>git push --delete origin [tag name]</code></blockquote>
+          <p>For a bonus, check out DevDocs - a useful tool (also available in offline mode if needed) when needing command references: <a href="https://devdocs.io/git/">Git on DevDocs</a></p>
+          <hr />
+  </li>
+  <li>
+      <h4>Filename is too long (Windows)</h4>
+      <p>
+          This limitation sometimes catches me on big projects with complex long file names.
+      </p>
+          <blockquote class="blockquote"><code>git config --system core.longpaths true</code></blockquote>
+      <p>Taken from here: <a href="https://stackoverflow.com/questions/22575662/filename-too-long-in-git-for-windows">Filename too long in Git for Windows</a></p>
+      <hr />
+</li>
+<li>
+  <h4>Create patch files for n number of commits</h4>
+  <p>
+      Need to merge code on unrelated branches? Or if your branches are so far removed from each other that you need to slowly and carefully apply changes to catch up, rather than a full blown merge or rebase? Patch files can be your friend!
+  </p>
+
+      <blockquote class="blockquote"><code>git format-patch -x</code> where x represents the number of commits back from HEAD.</blockquote>
+  <p>Taken from here: <a href="https://www.ivankristianto.com/create-patch-files-from-multiple-commits-in-git/">Create Patch Files From Multiple Commits In Git</a></p>
+  <hr />
+</li>
+<li>
+  <p>Some more useful tools for GIT. Check out <a href="https://github.com/mhagger/git-imerge">git-imerge</a>, a tool for step by step merging, and <a href="https://github.com/arc90/git-sweep">git-sweep</a>, a tool for deleting branches that have previously been merged to main.</p>
+  <hr />
+</li>
+</ul>
+
+<p>&nbsp;</p>
+<h3>NuGet Notes</h3>
+<p>
+  &nbsp;
+</p>
+<ul>
+  <li>
+          <h4>Re-install a package without updating</h4>
+          <p>
+              Sometimes needed after upgrading the .Net version of a project, or messing around with code sharing between solutions.
+          </p>
+
+              Run from the Package Manager Console window in Visual Studio:<blockquote class="blockquote"><code>Update-Package -reinstall</code></blockquote>
+              To reinstall only a single project, do:<blockquote class="blockquote"><code>Update-Package -reinstall -Project ProjectName</code></blockquote>
+          <p>See <a href="https://docs.microsoft.com/en-us/nuget/consume-packages/reinstalling-and-updating-packages">How to reinstall and update packages</a> on the Microsoft docs site.</p>
+          <hr />
+  </li>
+</ul>
+
+<p>&nbsp;</p>
+<h3>PowerShell Snippets</h3>
+<p>
+  &nbsp;
+</p>
+<ul>
+  <li>
+      <h4>Powershell If Not syntax</h4>
+      <p>
+          So I'll be the first to confess that the If syntax in PowerShell is not entirely intuitive, well, to me anyway. Starting with Not
+      </p>
+          <blockquote class="blockquote"><code>If(-Not $something)  ... </code></blockquote>
+      <p>There's a nice article over at Microsoft Docs <a href="https://docs.microsoft.com/en-us/powershell/scripting/learn/deep-dives/everything-about-if?view=powershell-7#-not">All about If</a></p>
+      <hr />
+  </li>
+  <li>
+          <h4>List all personal profile locations</h4>
+          <p>
+              Every so often I need to add or remove something from my PowerShell startup profile ($PROFILE), and for the life of me can never remember the syntax for listing them:
+          </p>
+              <blockquote class="blockquote"><code>$PROFILE | Format-List * -Force</code></blockquote>
+          <p>Taken (this time) from this handy article <a href="https://devblogs.microsoft.com/scripting/understanding-the-six-powershell-profiles/">Undestanding the six PowerShell profiles</a> on Microsoft DevBlogs</p>
+          <hr />
+  </li>
+  <li>
+      <h4>List all files and folders even hidden and system</h4>
+      <p>
+          I miss the old quick dir /a options from command line. Here's how to do it with Get-ChildItem (aka dir): Use the -Force, Luke
+      </p>
+          <blockquote class="blockquote"><code>Get-ChildItem -Force</code></blockquote>
+          or
+          <blockquote class="blockquote"><code>dir -Force</code></blockquote>
+      <p><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem">See the Get-ChildItem documentation</a></p>
+      <hr />
+  </li>
+  <li>
+      <h4>See what version of .Net Framework is installed on a PC</h4>
+      <p>
+          For .Net 4.5 onwards you can see the version of the framework installed this way:
+      </p>
+          <blockquote class="blockquote"><code>Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" -Name "Release" | Get-Member Release</code></blockquote>
+      <p><a href="https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed">How to determine .Net framework version documentation</a></p>
+      <p>The value grows larger with each successive release, similar to these minimum values:</p>
+      <table>
+          <tr>
+          <td><strong>.NET Framework version</strong>&nbsp;</td><td><strong>Minimum value</strong>&nbsp;</td>
+          </tr>
+          <tr>
+          <td>.NET Framework 4.5		</td><td>378389</td>
+          </tr>
+          <tr>
+          <td>.NET Framework 4.5.1	</td><td>378675</td>
+          </tr>
+          <tr>
+          <td>.NET Framework 4.5.2	</td><td>379893</td>
+          </tr>
+          <tr>
+          <td>.NET Framework 4.6		</td><td>393295</td>
+          </tr>
+          <tr>
+          <td>.NET Framework 4.6.1	</td><td>394254</td>
+          </tr>
+          <tr>
+          <td>.NET Framework 4.6.2	</td><td>394802</td>
+          </tr>
+          <tr>
+          <td>.NET Framework 4.7		</td><td>460798</td>
+          </tr>
+          <tr>
+          <td>.NET Framework 4.7.1	</td><td>461308</td>
+          </tr>
+          <tr>
+          <td>.NET Framework 4.7.2	</td><td>461808</td>
+          </tr>
+          <tr>
+          <td>.NET Framework 4.8		</td><td>528040</td>
+          </tr>
+          </table>
+      <hr />
+  </li>
+  <li>Check out my miscelaneous PowerShell utilities repo <a href="https://github.com/grahammcallister/powershellutil">github.com/grahammcallister/powershellutil</a> for more.</li>
+</ul>
+
+<p>&nbsp;</p>
+<h3>Tools</h3>
+<p>
+  &nbsp;
+</p>
+<ul>
+  <li>
+          <h4>AutoHotKey</h4>
+          <p>
+              AutoHotKey is one of those essential time savers for Windows based development or work life. You can use it to create and manage shortcuts for several commands or really almost any repetitive task. Check it out.
+          </p>
+          <p>AutoHotKey: <a href="https://www.autohotkey.com/">www.autohotkey.com</a></p>
+          <hr />
+  </li>
+  <li>
+          <h4>Chocolatey</h4>
+          <p>
+              If you develop on Windows and don't know about Chocolatey, please go now and install it. It's like NPM, but for Windows applications. It's a time saver.
+          </p>
+          <p>Read about Chocolatey here: <a href="https://chocolatey.org/">Chocolatey.org</a></p>
+          <hr />
+  </li>
+  <li>
+          <h4>Postman</h4>
+          <p>
+              Use this tool to save API request samples and call out to back end API's
+          </p>
+          <p><a href="https://www.postman.com/downloads/">Postman.com</a></p>
+          <hr />
+  </li>
+</ul>
+
+<p>&nbsp;</p>
+<h3>Windows 10</h3>
+<p>
+  &nbsp;
+</p>
+<ul>
+  <li>
+          <h4>Start up program folder location</h4>
+          <p>
+              There are always apps and utilities you need to run on startup; there are multiple ways to achieve this but a simple way is to place an item in the startup folder. If you can remember where to find it!
+          </p>
+              <blockquote class="blockquote">In the Windows run window (Win+R) paste:<code>shell:startup</code></blockquote>
+          <p><a href="https://support.microsoft.com/en-us/help/4026268/windows-10-change-startup-apps">Add Windows startup apps</a> from Microsoft support.</p>
+          <hr />
+  </li>
+</ul>
+
+<p>&nbsp;</p>
+<h3>IPC (Inter process communication)</h3>
+<p>
+  &nbsp;
+</p>
+<ul>
+  <li>
+          <h4>.Net WCF Named Pipes</h4>
+          <p>
+              Pipes are widely used but seem to me to be not so well understood. WCF hides some complexity but also adds some of its own abstractions that can be hard to remember.
+          </p>
+              <blockquote class="blockquote"><code></code></blockquote>
+          <p>Process Explorer from SysInternals can inspect the named pipes owned by any process.<br>Chrome allows inspection of pipes by putting <code>file://./pipe/</code> in the address bar.<br>For a great article on how WCF names pipes under the covers: <a href="https://rodneyviana.com/named-pipes-in-wcf-are-named-but-not-by-you-and-how-to-find-the-actual-windows-object-name/">Named Pipes in WCF are named, but not by you! (Blog post)</a></p>
+          <hr />
+  </li>
+</ul>
+</div>
+</div>

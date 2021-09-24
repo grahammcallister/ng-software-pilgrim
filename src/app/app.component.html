@@ -1,58 +1,6 @@
 <div class="container body-content">
 
-  <div class="jumbotron">
-      <div class="container">
-          <div class="row">
-                  <div class="col-md-4">
-                          <img src="assets/images/Graham.jpg" alt="Photo of Graham" height="193" width="143" />
-                      </div>
-                      <div class="col-md-8">
-                              <h1>The Software Pilgrim</h1>
-                              <p class="lead">Writings and resources from my personal journey in software development</p>
-                      </div>
-          </div>
-      </div>
-  </div>
-  <div class="row" >
-      <div class="col-md-4">
-          <h5>Resources for becoming a great developer</h5>
-          <p>
-              A list of useful and thought-provoking resources for becoming a great developer.
-          </p>
-      </div>
-      <div class="col-md-4">
-          <h5>Currently reading on the web</h5>
-          <p>
-              What's on my mind - talks and books
-          </p>
-      </div>
-      <div class="col-md-4">
-          <h5>Useful reminders and snippets</h5>
-          <p>
-              Shortcut keys, bookmarks and handy links for safe keeping.
-          </p>
-      </div>
-  </div>
+  <router-outlet></router-outlet>
 
-  <hr />
-  <footer>
-      <div class="container">
-          <div class="row">
-              <div class="col-md-4">
-              <p><small>&copy; 2021 The Software Pilgrim</small></p>
-              </div>
-              <div class="col-md-4">
-                  <small>
-              <a href="https://stackoverflow.com/users/45817/grahammc">
-                  Stack Overflow Profile for GrahamMc
-              </a>
-              </small>
-              </div>
-              <div class="col-md-4">
-                  <p><small>Follow <a href="https://twitter.com/GrahamMcZa">@GrahamMcZa on Twitter</a></small></p>
-                  <p><small><a href="https://www.github.com/grahammcallister"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Github logo" width="30" height="30"> www.Github.com/grahammcallister</a></small></p>
-              </div>
-          </div>
-      </div>
-  </footer>
+  <app-shared-footer></app-shared-footer>
 </div>
