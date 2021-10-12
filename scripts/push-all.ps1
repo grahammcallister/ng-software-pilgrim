@@ -10,30 +10,30 @@ Write-Host "Cherry pick commit ${commit} to all branches...?"
 Write-Host
 
 git checkout the-software-pilgrim
-cherry-pick $commit
+git cherry-pick $commit
 git push
 
 git checkout software-pilgrim
-cherry-pick $commit
+git cherry-pick $commit
 git push
 
 git checkout software-pilgrim-com
-cherry-pick $commit
+git cherry-pick $commit
 git push
 
 git checkout the-software-pilgrim-com
-cherry-pick $commit
+git cherry-pick $commit
 git push
 
 git checkout software-pilgrim-coza
-cherry-pick $commit
+git cherry-pick $commit
 git push
 
 git checkout the-software-pilgrim-coza
-cherry-pick $commit
+git cherry-pick $commit
 git push
 
 git checkout grahammcallister-coza
-cherry-pick $commit
+git cherry-pick $commit
 git push
 
