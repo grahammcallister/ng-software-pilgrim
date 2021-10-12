@@ -5,7 +5,9 @@ param($commit)
 # Usage:
 #   ./push-all.ps1 <commit>
 
-Write-Host "Cherry pick commit ${commit} to all branches..."
+Write-Host "Cherry pick commit ${commit} to all branches...?"
+[void][System.Console]::ReadKey($true)
+Write-Host
 
 git checkout the-software-pilgrim
 cherry-pick $commit
