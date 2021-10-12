@@ -37,3 +37,4 @@ git checkout grahammcallister-coza
 git cherry-pick $commit
 git push
 
+git checkout master
