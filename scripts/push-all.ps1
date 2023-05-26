@@ -26,7 +26,7 @@ Function CheckForErrors() {
 Function CheckStatus(){
     $status = git status
     Write-Host "Status: ${status}."
-    if ($status -notlike "*nothing to commit, working tree clean*") {
+    if ($status -notlike "*working tree clean*") {
         Write-Host "Exiting due to unclean working tree"
         exit 1
     }
