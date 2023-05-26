@@ -38,13 +38,16 @@ Write-Host
 
 $branches = @(
     "software-pilgrim"
-    "the-software-pilgrim"
-    "software-pilgrim-com"
-    "the-software-pilgrim-com"
-    "software-pilgrim-coza"
-    "the-software-pilgrim-coza"
-    "grahammcallister-coza"
 )
+
+#
+#    "the-software-pilgrim"
+#    "software-pilgrim-com"
+#    "the-software-pilgrim-com"
+#    "software-pilgrim-coza"
+#    "the-software-pilgrim-coza"
+#    "grahammcallister-coza"
+#
 
 # For each branch in branches, checkout the branch, cherry pick the commit, and push
 foreach ($branch in $branches) {
