@@ -25,7 +25,7 @@ Function CheckForErrors() {
 # Function to check the status of the current branch, and see if it is clean
 Function CheckStatus(){
     $status = git status
-    Write-Host $status
+    Write-Host "Status: ${status}."
     if ($status -notlike "*nothing to commit, working tree clean*") {
         Write-Host "Exiting due to unclean working tree"
         exit 1
