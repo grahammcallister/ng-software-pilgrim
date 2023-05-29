@@ -24,16 +24,6 @@ Function CheckForErrors() {
     }
 }
 
-# Function to check the status of the current branch, and see if it is clean
-Function CheckStatus(){
-    $status = git status
-    Write-Host "Status: ${status}."
-    if ($status -notlike "*working tree clean*") {
-        Write-Host "Exiting due to working tree not clean"
-        exit 1
-    }
-}
-
 Write-Host "Cherry pick commit ${commit} to all branches...?"
 [void][System.Console]::ReadKey($true)
 Write-Host
@@ -56,8 +46,6 @@ foreach ($branch in $branches) {
     Write-Host "Checking out branch ${branch}..."
     Checkout $branch
     CheckForErrors
-
-    CheckStatus
 
     Write-Host "Cherry picking commit ${commit}..."
     CherryPick $commit
