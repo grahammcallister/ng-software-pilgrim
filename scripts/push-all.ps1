@@ -7,17 +7,29 @@ param($commit)
 # Checks out a given branch
 Function Checkout($branch) {
     git checkout $branch
-   }
+}
 
 # Function to cherry pick a specific commit
 Function CherryPick($commit) {
     git cherry-pick $commit
+    CheckForErrors
+    git merge --abort
 }
 
 # Function to check error codes and last exit code, and exit if there is an error
 Function CheckForErrors() {
     if ($LASTEXITCODE -ne 0) {
         Write-Host "Exiting due to exit code ${LASTEXITCODE}"
+        exit 1
+    }
+}
+
+# Function to check the status of the current branch, and see if it is clean
+Function CheckStatus(){
+    $status = git status
+    Write-Host "Status: ${status}."
+    if ($status -notlike "*working tree clean*") {
+        Write-Host "Exiting due to working tree not clean"
         exit 1
     }
 }
@@ -45,9 +57,11 @@ foreach ($branch in $branches) {
     Checkout $branch
     CheckForErrors
 
+    CheckStatus
+
     Write-Host "Cherry picking commit ${commit}..."
     CherryPick $commit
-    CheckForErrors
+    
 
     Write-Host "Pushing branch ${branch}..."
     git push
