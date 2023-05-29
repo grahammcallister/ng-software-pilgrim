@@ -1,4 +1,4 @@
-param($commit)
+param($commit, $branch)
 # This script pushes a specific commit to specific branches using cherry-pick
 # The script stops if there are any failed exit codes or errors
 # Usage:
@@ -29,7 +29,7 @@ Write-Host "Cherry pick commit ${commit} to all branches...?"
 Write-Host
 
 $branches = @(
-    "software-pilgrim"
+    "the-software-pilgrim"
 )
 
 #
@@ -41,8 +41,8 @@ $branches = @(
 #    "grahammcallister-coza"
 #
 
-# For each branch in branches, checkout the branch, cherry pick the commit, and push
-foreach ($branch in $branches) {
+
+#foreach ($branch in $branches) {
     Write-Host "Checking out branch ${branch}..."
     Checkout $branch
     CheckForErrors
@@ -54,6 +54,6 @@ foreach ($branch in $branches) {
     Write-Host "Pushing branch ${branch}..."
     git push
     CheckForErrors
-}
+#}
 
 git checkout master
