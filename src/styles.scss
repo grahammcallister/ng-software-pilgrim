@@ -1,12 +1,13 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 
 @media (prefers-color-scheme: dark) {
   body {
       color: #b0b0b0;
       background-color: #101010;
   }
-
-  .jumbotron {
-    color: #b0b0b0;
-    background-color: #303030;
-  }
 }
+
+

@@ -1,0 +1,58 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+@media (prefers-color-scheme: light) {
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$ng-software-pilgrim-primary: mat.define-palette(mat.$indigo-palette);
+$ng-software-pilgrim-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$ng-software-pilgrim-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$ng-software-pilgrim-theme: mat.define-light-theme((
+  color: (
+    primary: $ng-software-pilgrim-primary,
+    accent: $ng-software-pilgrim-accent,
+    warn: $ng-software-pilgrim-warn,
+  )
+));
+
+  @include mat.all-component-themes($ng-software-pilgrim-theme);
+}
+
+@media (prefers-color-scheme: dark) {
+
+  // Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$ng-software-pilgrim-primary: mat.define-palette(mat.$blue-grey-palette);
+$ng-software-pilgrim-accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$ng-software-pilgrim-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$ng-software-pilgrim-theme: mat.define-dark-theme((
+  color: (
+    primary: $ng-software-pilgrim-primary,
+    accent: $ng-software-pilgrim-accent,
+    warn: $ng-software-pilgrim-warn,
+  )
+));
+
+  @include mat.all-component-themes($ng-software-pilgrim-theme);
+  
+}

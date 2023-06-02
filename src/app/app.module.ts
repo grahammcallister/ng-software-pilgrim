@@ -8,6 +8,8 @@ import { PageHomeComponent } from './page-home/page-home.component';
 import { PageResourcesComponent } from './page-resources/page-resources.component';
 import { PageCurrentComponent } from './page-current/page-current.component';
 import { PageBookmarksComponent } from './page-bookmarks/page-bookmarks.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModules } from './material-modules';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { PageBookmarksComponent } from './page-bookmarks/page-bookmarks.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModules
   ],
   providers: [],
   bootstrap: [AppComponent]
